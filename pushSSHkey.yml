@@ -1,0 +1,13 @@
+---
+# hosts: localhost
+# - 
+
+
+# hosts: all
+- name: Push my SSH keys
+  hosts: all
+  user: root
+  become: yes
+  gather_facts: true
+  roles:
+    - role: pushSSHkey

@@ -1,0 +1,36 @@
+---
+# tasks file for examMode
+
+- name: Create backup for /etc/fstab
+  command: cp /etc/fstab /etc/fstabOriginal
+  tags:
+  - initialize
+
+- name: Create examMode /etc/fstabExamMode
+  command: cp /etc/fstab /etc/fstabExamMode
+  tags:
+  - initialize
+
+- name: Remove NFS mounts from /etc/fstabExamMode file
+  lineinfile:
+    path: /etc/fstabExamMode
+    state: absent
+    regexp: '^10.5.0.90'
+  tags:
+  - removeNFS
+  - initialize
+
+- name: Disable NFS mounts
+  command: cp /etc/fstabExamMode /etc/fstab
+  tags:
+  - disableNFS
+
+- name: Enable NFS mounts
+  command: cp /etc/fstabOriginal /etc/fstab
+  tags:
+  - enableNFS
+
+- name: Shutdown machines
+  command: "poweroff"
+  tags:
+  - poweroff

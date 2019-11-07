@@ -1,0 +1,8 @@
+---
+- name: Power off machines
+  hosts: all
+  user: root
+  become: yes
+  gather_facts: false
+  roles:
+    - role: poweroff

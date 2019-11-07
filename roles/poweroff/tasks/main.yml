@@ -1,0 +1,6 @@
+---
+# tasks file for poweroff
+#
+
+- name: Shutdown the systems
+  command: poweroff

@@ -1,0 +1,8 @@
+---
+- name: netDisableExam
+  hosts: all
+  user: root
+  become: yes
+  gather_facts: false
+  roles:
+    - role: netDisable-exam

@@ -1,0 +1,5 @@
+---
+# tasks file for firewallDisable
+
+- name: Run filewall script
+  script: netDisable-exam.sh

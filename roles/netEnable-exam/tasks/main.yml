@@ -1,0 +1,5 @@
+---
+# tasks file for netEnable-exam
+
+- name: Run filewall enable script
+  script: netEnable-exam.sh

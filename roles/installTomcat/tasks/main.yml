@@ -1,0 +1,10 @@
+---
+# tasks file for installTomcat
+
+- name: Copy tomcat tarball to system
+  copy:
+    src: apache-tomcat-9.0.26.tar.gz
+    dest: /root/apache-tomcat-9.0.26.tar.gz
+
+- name: Install tomcat using script
+  script: tomcat.sh

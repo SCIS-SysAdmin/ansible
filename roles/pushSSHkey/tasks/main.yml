@@ -1,0 +1,9 @@
+---
+#tasks file for pushSSHkey
+
+- name: Create authorized_keys file
+  authorized_key:
+      user: root # required. The username on the remote host whose authorized_keys file will be modified
+      key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqgeYZ1IbHRLRZPo32KcehQcEgu3I2SKgLX3cbV3O5mPqeirHfMviwWByvAwmqQI4XHEMvVsx2HpHfgnitQ9EkZnRvnkegMF8WDJJMGoWMtEYcjiIewK6ufpipgJihp9Wg6Gb7PTFJVlCma4EqlvEdlV6I2F0nJooNU9prMCEbkUSOSu3RMwUHei6M0+67f+eAOFOH8oo027fYibT+1bv5LGrVToSMXjVn1O42W+dnp1OkjxuvIiCtK5ML961lcDACS/fXE19YHhKW2Tk4z6xDkLSimOFHoUn62/mpMEz/7VqZKZb/6X9ckVi3pvEffyW9Yevo1Pp2tvJrjuCDg7cl th3nyx@atlanti" 
+      state: present
+   #tags: pushSSHkey

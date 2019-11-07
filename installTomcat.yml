@@ -1,0 +1,8 @@
+---
+- name: Enable Exam mode
+  hosts: all
+  user: root
+  become: yes
+  gather_facts: false
+  roles:
+    - role: installTomcat
