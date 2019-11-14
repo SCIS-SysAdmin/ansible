@@ -34,3 +34,13 @@
   command: "poweroff"
   tags:
   - poweroff
+
+- name: Reboot machines
+  command: "reboot"
+  tags:
+  - reboot
+
+- name: Clean up all the files
+  script: examCleanup.sh
+  tags:
+  - examCleanup
