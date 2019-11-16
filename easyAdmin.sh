@@ -80,7 +80,8 @@ do
 			gatherHosts
 			internetEnable
 			enableNFS
-			rebootMachine
+			poweroffMachine
+			#rebootMachine
 			;;
         "Quit")
 		# echo -e " $redHigh WARNING: Host files flushed. Gather hosts when you open the script next time. $clearColor "

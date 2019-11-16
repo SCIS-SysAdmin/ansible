@@ -1,5 +1,6 @@
 # SCIS-UoH custom ignore
 
+**tmp
 arpOutput.txt
 container/
 currentSystemList.txt
