@@ -1,2 +1,0 @@
-[test]
-10.5.1.153 ansible_password=''  ansible_ssh_extra_args='-o StrictHostKeyChecking=no'

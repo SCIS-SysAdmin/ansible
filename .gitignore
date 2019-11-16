@@ -1,3 +1,22 @@
+# SCIS-UoH custom ignore
+
+arpOutput.txt
+container/
+currentSystemList.txt
+dir_default.txt
+exam_cleanup.sh
+insidelab.txt
+inventory/
+outsidelab.txt
+pingAll.sh
+sidelab.txt
+tmp.txt
+uohlab/
+
+
+# Secrets #DO NOT DELETE
+**.ssh
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -11,10 +11,10 @@ greenHigh="\e[42m"
 
 ### Internet Disable ###
 internetDisable() {
-	ansible-playbook -i inventory/firewallHosts netDisable-exam.yml
+	ansible-playbook -i inventory/hosts netDisable-exam.yml
 }
 internetEnable() {
-	ansible-playbook -i inventory/firewallHosts netEnable-exam.yml
+	ansible-playbook -i inventory/hosts netEnable-exam.yml
 }
 
 gatherHosts() {
@@ -24,22 +24,22 @@ gatherHosts() {
 }
 
 disableNFS() {
-	ansible-playbook -i inventory/firewallHosts examMode.yml --tags disableNFS
+	ansible-playbook -i inventory/hosts examMode.yml --tags disableNFS
 }
 
 enableNFS() {
-	ansible-playbook -i inventory/firewallHosts examMode.yml --tags enableNFS
+	ansible-playbook -i inventory/hosts examMode.yml --tags enableNFS
 }
 
 rebootMachine() {
-	ansible-playbook -i inventory/firewallHosts examMode.yml --tags reboot
+	ansible-playbook -i inventory/hosts examMode.yml --tags reboot
 }
 poweroffMachine() {
-	ansible-playbook -i inventory/firewallHosts examMode.yml --tags poweroff
+	ansible-playbook -i inventory/hosts examMode.yml --tags poweroff
 }
 
 examCleanup() {
-	ansible-playbook -i inventory/firewallHosts examMode.yml --tags examCleanup
+	ansible-playbook -i inventory/hosts examMode.yml --tags examCleanup
 }
 
 
@@ -54,43 +54,40 @@ options=("Gather hosts" "Internet Disable" "Internet Enable" "Exam Mode ON" "Exa
 select opt in "${options[@]}"
 do
     case $opt in
-        "Internet Disable")
-		internetDisable
+        "Internet Disable") 
+			internetDisable
             ;;
         "Internet Enable")
-            	internetEnable
+        	internetEnable
             ;;
-
-	"Exam Clean-up")
-		examCleanup
-	    ;;
-        "Exam Mode ON")
-	   	gatherHosts
-		internetDisable
-		disableNFS
-		rebootMachine
-            ;;
-	
+		"Exam Clean-up")
+			examCleanup
+	    	;;
+    	"Exam Mode ON")
+#	   		gatherHosts
+			internetDisable
+			disableNFS
+			rebootMachine
+        	;;	
         "Gather hosts")
-		gatherHosts
+			gatherHosts
             ;;
-	 
-	"Power off All")
-		poweroffMachine
-	    ;;
+		"Power off All")
+			poweroffMachine
+	    	;;
 
         "Exam Mode OFF")
-		gatherHosts
-		internetEnable
-		enableNFS
-		rebootMachine
-	    ;;
+			gatherHosts
+			internetEnable
+			enableNFS
+			rebootMachine
+			;;
         "Quit")
-	   # echo -e " $redHigh WARNING: Host files flushed. Gather hosts when you open the script next time. $clearColor "
-	   # echo
-	    #echo "" > inventory/firewallHosts
-            break
-            ;;
+		# echo -e " $redHigh WARNING: Host files flushed. Gather hosts when you open the script next time. $clearColor "
+		# echo
+		#echo "" > inventory/hosts
+			break
+			;;
         *) echo "invalid option $REPLY";;
     esac
 done
